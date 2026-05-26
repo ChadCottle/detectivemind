@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Detective's Mind | Portal</title>
+    <style>
+        body { background-color: #0d0d0d; color: #00ff41; font-family: 'Courier New', monospace; padding: 20px; line-height: 1.6; }
+        .container { max-width: 800px; margin: auto; }
+        .case { border: 1px solid #00ff41; padding: 20px; margin-bottom: 20px; border-radius: 8px; background: #1a1a1a; }
+        .cyber-link { color: #ff00ff; text-decoration: none; font-weight: bold; border: 1px solid #ff00ff; padding: 5px 10px; border-radius: 4px; }
+        .cyber-link:hover { background: #ff00ff; color: #000; }
+        .debrief { display: none; margin-top: 15px; padding: 10px; background: #003300; border-left: 5px solid #00ff41; }
+        input { background: #000; color: #00ff41; border: 1px solid #00ff41; padding: 8px; width: 60%; }
+        button { background: #00ff41; color: #000; border: none; padding: 8px 15px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🕵️‍♂️ The Detective's Mind: Central Portal</h1>
+        <p>Your lab bench is open: <a href="https://gchq.github.io/CyberChef/" target="_blank" class="cyber-link">Launch CyberChef (The Lab)</a></p>
+
+        <!-- Case 1 -->
+        <div class="case" id="case1">
+            <h3>Case #001: The Dropped Note</h3>
+            <p>Evidence: <code>U29sdmluZyBwdXp6bGVzIGlzIGZ1biE=</code></p>
+            <input type="text" id="ans1" placeholder="Decoded message...">
+            <button onclick="check(1, 'Solving puzzles is fun!', 'debrief1')">Analyze</button>
+            <div id="debrief1" class="debrief">
+                <strong>DEBRIEF:</strong> You used <em>Base64 Decoding</em>. That '=' sign is your best friend—it tells the computer that the message was padded to fit a specific length.
+            </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="case" id="case2">
+            <h3>Case #002: The Caesar Shift</h3>
+            <p>Evidence: <code>synt vf sha!</code></p>
+            <input type="text" id="ans2" placeholder="Decoded message...">
+            <button onclick="check(2, 'flag is fun!', 'debrief2')">Analyze</button>
+            <div id="debrief2" class="debrief">
+                <strong>DEBRIEF:</strong> You identified a <em>ROT13 shift</em>. Because the English alphabet has 26 letters, shifting by 13 is a "self-inverse" operation. If you shift it again, you get your original message back!
+            </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="case" id="case3">
+            <h3>Case #003: The Hexadecimal Handoff</h3>
+            <p>Evidence: <code>48656c6c6f2044657465637469766521</code></p>
+            <input type="text" id="ans3" placeholder="Decoded message...">
+            <button onclick="check(3, 'Hello Detective!', 'debrief3')">Analyze</button>
+            <div id="debrief3" class="debrief">
+                <strong>DEBRIEF:</strong> You mastered <em>Hexadecimal</em>. Computer memory stores data in bytes. Hex is just a human-readable way to look at those bytes (Base 16). 48 in hex is 'H' in ASCII!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function check(id, solution, debriefId) {
+            let userAns = document.getElementById('ans'+id).value;
+            if (userAns.toLowerCase() === solution.toLowerCase()) {
+                document.getElementById(debriefId).style.display = "block";
+            } else {
+                alert("Access Denied: Evidence mismatch. Re-examine the pattern.");
+            }
+        }
+    </script>
+</body>
+</html>

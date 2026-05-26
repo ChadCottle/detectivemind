@@ -51,18 +51,17 @@
                 <strong>DEBRIEF:</strong> You mastered <em>Hexadecimal</em>. Computer memory stores data in bytes. Hex is just a human-readable way to look at those bytes (Base 16). 48 in hex is 'H' in ASCII!
             </div>
         </div>
-    </div>
 
-    <!-- Case 4: URL Encoding -->
-<div class="case" id="case4">
-    <h3>Case #004: The Web Intercept</h3>
-    <p>Evidence: <code>%48%65%6c%6c%6f%20%54%65%61%6d%21</code></p>
-    <input type="text" id="ans4" placeholder="Decoded message...">
-    <button onclick="check(4, 'Hello Team!', 'debrief4')">Analyze</button>
-    <div id="debrief4" class="debrief">
-        <strong>DEBRIEF:</strong> You solved <em>URL Encoding</em>. Web browsers use percent signs (%) to represent special characters so they don't break the structure of a URL.
-    </div>
-</div>
+        <!-- Case 4: URL Encoding -->
+        <div class="case" id="case4">
+            <h3>Case #004: The Web Intercept</h3>
+            <p>Evidence: <code>%48%65%6c%6c%6f%20%54%65%61%6d%21</code></p>
+            <input type="text" id="ans4" placeholder="Decoded message...">
+            <button onclick="check(4, 'Hello Team!', 'debrief4')">Analyze</button>
+            <div id="debrief4" class="debrief">
+                <strong>DEBRIEF:</strong> You solved <em>URL Encoding</em>. Web browsers use percent signs (%) to represent special characters so they don't break the structure of a URL.
+            </div>
+        </div>
 
 <!-- Case 5: Multi-Layer (Base64 -> Reverse) -->
 <div class="case" id="case5">
@@ -84,6 +83,7 @@
     <div id="debrief6" class="debrief">
         <strong>DEBRIEF:</strong> You used <em>XOR Brute Force</em>. XOR is a logical operation that "masks" data. Since there are only 256 possible keys for a single byte, a computer can try them all in milliseconds!
     </div>
+</div>
 </div>
     <script>
         function check(id, solution, debriefId) {

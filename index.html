@@ -53,6 +53,38 @@
         </div>
     </div>
 
+    <!-- Case 4: URL Encoding -->
+<div class="case" id="case4">
+    <h3>Case #004: The Web Intercept</h3>
+    <p>Evidence: <code>%48%65%6c%6c%6f%20%54%65%61%6d%21</code></p>
+    <input type="text" id="ans4" placeholder="Decoded message...">
+    <button onclick="check(4, 'Hello Team!', 'debrief4')">Analyze</button>
+    <div id="debrief4" class="debrief">
+        <strong>DEBRIEF:</strong> You solved <em>URL Encoding</em>. Web browsers use percent signs (%) to represent special characters so they don't break the structure of a URL.
+    </div>
+</div>
+
+<!-- Case 5: Multi-Layer (Base64 -> Reverse) -->
+<div class="case" id="case5">
+    <h3>Case #005: The Double-Lock</h3>
+    <p>Evidence: <code>IWRuZWZlZCBldCBlcmUgZW0gZ04=</code></p>
+    <input type="text" id="ans5" placeholder="Decoded message...">
+    <button onclick="check(5, 'No me ere te defende N!', 'debrief5')">Analyze</button>
+    <div id="debrief5" class="debrief">
+        <strong>DEBRIEF:</strong> <em>Chained Encoding.</em> You had to first decode the Base64, then use the <strong>Reverse</strong> operation. Threat actors do this to break simple scanning tools!
+    </div>
+</div>
+
+<!-- Case 6: XOR Brute Force -->
+<div class="case" id="case6">
+    <h3>Case #006: The Secret Key (XOR)</h3>
+    <p>Evidence: <code>2f2824252b</code> (Hint: Key is a single digit between 1-9)</p>
+    <input type="text" id="ans6" placeholder="Decoded message...">
+    <button onclick="check(6, 'Hello', 'debrief6')">Analyze</button>
+    <div id="debrief6" class="debrief">
+        <strong>DEBRIEF:</strong> You used <em>XOR Brute Force</em>. XOR is a logical operation that "masks" data. Since there are only 256 possible keys for a single byte, a computer can try them all in milliseconds!
+    </div>
+</div>
     <script>
         function check(id, solution, debriefId) {
             let userAns = document.getElementById('ans'+id).value;
